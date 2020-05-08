@@ -10,7 +10,7 @@ CFLAGS=-I$(IDIR) -g -Wall -Werror -std=c99
 ODIR=obj
 
 # Libaries to link. For example -lm for linking the basic math library
-LIBS=-ledit
+LIBS=
 
 # _DEPS is a macro defining the list of header files that the .c files depend on.
 # It is a space separated list of header files.
@@ -19,13 +19,13 @@ LIBS=-ledit
 # (https://www.gnu.org/software/make/manual/html_node/Text-Functions.html#Text-Functions)
 # $(patsubst pattern,replacement,text)
 # where % is a wildcard.
-_DEPS = main.h
+_DEPS = main.h pgn.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS)) 
 
 # _OBJ is a macro defining the list of object files that will generate before generating the final executable.
 # OBJ replaces each of the files with the path to the file: ODIR/*filename*.
 # Process is desribed above.
-_OBJ = main.o 
+_OBJ = main.o pgn.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
